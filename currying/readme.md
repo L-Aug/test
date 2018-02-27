@@ -74,6 +74,7 @@ let add = currying(function () {
 
 add(1)(2)()
 >  3
+
  ```
 
 
