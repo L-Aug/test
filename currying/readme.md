@@ -1,11 +1,15 @@
+有错误或理解不全面的地方 望指出
+
+柯里化|部分求值
 参考：
+http://www.alloyteam.com/2013/08/javascript-zhong-you-qu-di-fan-ke-li-hua-ji-shu/
+https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/content/ch4.html#不可或缺的-curry
 https://www.jianshu.com/p/f88a5175e7a2
 
-问题
- * 1.什么是柯里化
- * 2.为什么要用柯里化
- * 3.柯里化有什么优缺点
- * 4.什么是反柯里化
 
 
-1.把多参数传入的函数拆成单参数（或部分）函数，内部再返回调用下一个单参数（或部分）函数，依次处理剩余的参数。
+1.把多参数传入的函数拆成单参数函数，内部再返回调用下一个单参数函数，依次处理剩余的参数。
+
+2.减少重复代码，延迟计算
+
+

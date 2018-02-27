@@ -1,13 +1,21 @@
 /** 
  * 柯里化
- * 1.什么是柯里化
- * 2.为什么要用柯里化
- * 3.柯里化有什么优缺点
- * 4.什么是反柯里化
  * 
 */
 
-// 柯里化函数
+
+// 简单的
+function add(x) {
+    return function (y) {
+        return x + y;
+    };
+};
+
+let increment = add(1);
+increment(2)
+// 3
+
+
 function curryingAdd() {
     let args = [].slice.call(arguments);
     return _fun = function () {
@@ -19,8 +27,8 @@ function curryingAdd() {
         return _fun;
     }
 }
-curryingAdd(1)(2)(3)()
-// >  6
+curryingAdd(1)(2)()
+// 3
 
 /**
  * 对函数进行柯里化
@@ -46,4 +54,3 @@ let add = currying(function () {
 })
 
 add(1)(2)(3)()
-//>  6
