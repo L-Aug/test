@@ -40,18 +40,13 @@ function curryingAdd() {
 }
 curryingAdd(1)(2)()
 > 3
+
 ```
 
 
 
 
  对函数进行柯里化
- 
- 去掉通用柯里化第一个参数(需要柯里化的函数)
- 
- 没有参数调用参数并返回结果
- 
- 有参数则添加参数并返回一个接受参数的函数
  ```javascript
 function currying(fn) {
     let args = [].splice.call(arguments, 1);
@@ -64,6 +59,7 @@ function currying(fn) {
         return _fun;
     }
 }
+
  ```
 
 对一个函数进行柯里化
