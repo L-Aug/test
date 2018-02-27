@@ -16,10 +16,13 @@ increment(2)
 // 3
 
 
+
+// 使用隐式参数
 function curryingAdd() {
     let args = [].slice.call(arguments);
     return _fun = function () {
         if (arguments.length == 0) {
+            // reduce：累加器
             return [].reduce.call(args, function (a, b) { return a + b });
         } else {
             [].push.apply(args, arguments)
@@ -29,6 +32,8 @@ function curryingAdd() {
 }
 curryingAdd(1)(2)()
 // 3
+
+
 
 /**
  * 对函数进行柯里化
@@ -49,8 +54,8 @@ function currying(fn) {
 }
 
 let add = currying(function () {
-    // reduce：累加器
     return [].reduce.call(arguments, function (a, b) { return a + b });
 })
 
-add(1)(2)(3)()
+add(1)(2)()
+// 3
