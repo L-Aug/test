@@ -21,7 +21,7 @@ function foo(x) {
 let increment = foo(1);
 increment(2)
 > 3
-```javascript
+```
 
 
  使用隐式参数
@@ -40,7 +40,7 @@ function curryingAdd() {
 }
 curryingAdd(1)(2)()
 > 3
-```javascript
+```
 
 
  ```javascript
@@ -61,7 +61,7 @@ function currying(fn) {
         return _fun;
     }
 }
- ```javascript
+ ```
 
 对一个函数进行柯里化
   ```javascript
@@ -71,7 +71,7 @@ let add = currying(function () {
 
 add(1)(2)()
 >  3
- ```javascript
+ ```
 
 
 参考：
