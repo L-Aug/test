@@ -5,13 +5,13 @@
 
 
 // 简单的
-function add(x) {
+function foo(x) {
     return function (y) {
         return x + y;
     };
 };
 
-let increment = add(1);
+let increment = foo(1);
 increment(2)
 // 3
 
@@ -53,6 +53,7 @@ function currying(fn) {
     }
 }
 
+//对一个函数进行柯里化
 let add = currying(function () {
     return [].reduce.call(arguments, function (a, b) { return a + b });
 })
