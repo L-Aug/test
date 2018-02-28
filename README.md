@@ -1,2 +1,3 @@
 # cginx
-平时遇到的问题或者想法
+柯里化：https://github.com/cginx/test/tree/master/currying
+
