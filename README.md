@@ -1,5 +1,5 @@
 # 随想
-git常用命令:http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html
+git常用命令：http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html
 
 柯里化：https://github.com/cginx/test/tree/master/currying
 
