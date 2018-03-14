@@ -5,23 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>clipboard-event</title>
 </head>
 
 <body>
-    <button class="copy">点击复制</button>
-    <textarea name="" id="" cols="30" rows="10" placeholder="可粘贴到此测试"></textarea>
+    <div>
+        <input type="text" placeholder="在这里输入">
+    </div>
+    <textarea cols="30" rows="10" placeholder="可粘贴到此测试"></textarea>
+    <div>
+        <button class="copy">点击复制</button>
+    </div>
 </body>
 
 <script>
 
     document.querySelector('.copy').addEventListener('click', () => {
-        let text = Math.random() * 100;
+        let text = document.querySelector('input').value;
         copyText(text);
     })
     document.querySelector('textarea').addEventListener('blur', (e) => {
         e.target.value = null
     })
+
+
+    copyText = clipboardListener('copy', (state) => {
+        if (state)
+            console.log('复制成功')
+        else
+            console.log('复制失败，请手动复制')
+    });
+
+
+
 
     // 在老版本浏览器中，options是Boolean类型 
     function detectionListener() {
@@ -35,38 +51,33 @@
         return support;
     }
 
-    copyText = (() => {
-        let copy = function (e, text) {
+    function clipboardListener(type, dispose) {
+        let setData = function (e, text) {
             e.preventDefault();//阻止默认行为
             console.log(text)
             e.clipboardData.setData('text/plain', text);//
         }
-        let dispose = function () {
-            if (document.execCommand("copy")) {
-                console.log('复制成功')
-            } else {
-                alert('复制失败，请手动复制')
-            }
-        }
 
         if (detectionListener()) {
-            return (function (text) {
-                document.addEventListener('copy', (e) => {
-                    copy(e, text)
+            return (function (text, errText) {
+                console.log(type)
+                document.addEventListener(type, (e) => {
+                    setData(e, text)
                 }, { once: true });
-                dispose();
+                dispose(document.execCommand(type));
             })
         } else {
             return (function (text) {
+                console.log(type)
                 let save = (e) => {
-                    copy(e, text)
-                    document.removeEventListener('copy', save);
+                    setData(e, text)
+                    document.removeEventListener(type, save);
                 }
-                document.addEventListener('copy', save);
-                dispose();
+                document.addEventListener(type, save);
+                dispose(document.execCommand(type));
             })
         }
-    })()
+    }
 
 </script>
 
