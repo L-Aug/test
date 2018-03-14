@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="copy">点击复制</button>
+    <textarea name="" id="" cols="30" rows="10" placeholder="可粘贴到此测试"></textarea>
+</body>
+
+<script>
+
+    document.querySelector('.copy').addEventListener('click', () => {
+        let text = Math.random() * 100;
+        copyText(text);
+    })
+    document.querySelector('textarea').addEventListener('blur', (e) => {
+        e.target.value = null
+    })
+
+    // 在老版本浏览器中，options是Boolean类型 
+    function detectionListener() {
+        let support = false;
+        let options = Object.defineProperty({}, 'test', () => {
+            get: () => {
+                support = true;
+            }
+        })
+        window.addEventListener('test', null, options);
+        return support;
+    }
+
+    copyText = (() => {
+        let copy = function (e, text) {
+            e.preventDefault();//阻止默认行为
+            console.log(text)
+            e.clipboardData.setData('text/plain', text);//
+        }
+        let dispose = function () {
+            if (document.execCommand("copy")) {
+                console.log('复制成功')
+            } else {
+                alert('复制失败，请手动复制')
+            }
+        }
+
+        if (detectionListener()) {
+            return (function (text) {
+                document.addEventListener('copy', (e) => {
+                    copy(e, text)
+                }, { once: true });
+                dispose();
+            })
+        } else {
+            return (function (text) {
+                let save = (e) => {
+                    copy(e, text)
+                    document.removeEventListener('copy', save);
+                }
+                document.addEventListener('copy', save);
+                dispose();
+            })
+        }
+    })()
+
+</script>
+
+</html>
