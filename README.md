@@ -7,4 +7,4 @@ React：https://github.com/cginx/test/tree/master/react-test
 
 剪贴板：https://github.com/cginx/test/tree/master/clipboard-event
 
-WebPack：https://github.com/cginx/test/tree/master/clipboard-event
+WebPack：https://github.com/cginx/test/tree/master/webpack-test
