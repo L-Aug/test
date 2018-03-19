@@ -1,27 +1,31 @@
 {
-    "name": "rxjs",
-    "version": "0.1.0",
-    "description": "rxjs",
-    "private": true,
-    "main": "index.ts",
-    "dependencies": {
-        "webpack": "^3.11.0"
-    },
-    "devDependencies": {
-        "ts-loader": "*",
-        "css-loader": "*",
-        "style-loader": "*",
-        "html-webpack-plugin": "^2.30.1",
-        "scss-loader": "0.0.1",
-        "webpack-dev-server": "^2.11.1",
-        "clean-webpack-plugin": "^0.1.18",
-        "extract-text-webpack-plugin": "^3.0.2"
-    },
-    "scripts": {
-        "start": "webpack",
-        "server": "webpack-dev-server --open",
-        "build": "set NODE_ENV=production && webpack --config ./webpack.production.config.js --progress"
-    },
-    "author": "",
-    "license": "ISC"
+  "name": "rxjs",
+  "version": "0.1.0",
+  "description": "rxjs",
+  "private": true,
+  "main": "index.js",
+  "dependencies": {
+    "webpack": "^3.11.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "*",
+    "css-loader": "*",
+    "style-loader": "*",
+    "scss-loader": "0.0.1",
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.1",
+    "clean-webpack-plugin": "^0.1.18",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "html-webpack-plugin": "^2.30.1"
+  },
+  "scripts": {
+    "start": "webpack",
+    "server": "webpack-dev-server --open",
+    "build": "set NODE_ENV=production && webpack --config ./webpack.production.config.js --progress"
+  },
+  "author": "需要IE9以上",
+  "license": ""
 }
