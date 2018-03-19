@@ -6,5 +6,5 @@
 * [剪贴板](https://github.com/cginx/test/tree/master/clipboard-event)
 * [WebPack](https://github.com/cginx/test/tree/master/webpack-test)
 * [Es6](https://github.com/cginx/test/tree/master/es6)
-* [rxjs](https://github.com/cginx/test/tree/master/rxjs)
+* [Rxjs](https://github.com/cginx/test/tree/master/rxjs)
 
